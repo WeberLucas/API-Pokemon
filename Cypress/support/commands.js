@@ -70,3 +70,21 @@ Cypress.Commands.add('validaEvolucaoPokemon', (chainId, nomesEsperados) => {
     expect(nomesEncontrados).to.deep.eq(nomesEsperados);
   });
 });
+Cypress.Commands.add('validaImagemDoPokemon', (idPokemon, urlEsperada) => {
+  cy.api(`/pokemon/${idPokemon}`).then((response) => {
+    expect(response.status).to.eq(200);
+    const imagem = response.body.sprites.versions['generation-iv']['diamond-pearl'].front_default;
+    expect(imagem).to.eq(urlEsperada);
+  });
+});
+Cypress.Commands.add('validaSeImagemEPng', (idPokemon) => {
+  cy.api(`/pokemon/${idPokemon}`).then((response) => {
+    expect(response.status, 'Status da resposta deve ser 200').to.eq(200);
+    const imagem = response.body.sprites.versions['generation-iv']['diamond-pearl'].front_default;
+
+    expect(imagem, 'URL da imagem deve começar com http ou https').to.match(/^https?:\/\/.+/);
+
+    expect(imagem, 'URL da imagem deve terminar com .png').to.match(/\.png$/);
+  });
+});
+

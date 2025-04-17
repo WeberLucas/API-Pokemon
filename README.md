@@ -115,3 +115,85 @@ cypress.config.js
 - [Cypress](https://docs.cypress.io)
 - [cypress-plugin-api](https://www.npmjs.com/package/cypress-plugin-api)
 - [mochawesome](https://www.npmjs.com/package/mochawesome)
+
+
+
+## 📋 Resumo do Mapeamento de Cenários
+
+Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação dos seguintes cenários principais:
+
+- Validação de dados de Pokémon (`/pokemon/{id}`)
+- Validação de tipos de Pokémon (`/type/{id}`)
+- Validação de cadeia evolutiva de Pokémon (`/evolution-chain/{id}`)
+
+**Cenários mapeados:**
+
+- Validação de nome, habilidade e golpes de um Pokémon específico.
+- Verificação de evolução de Pokémons.
+- Confirmação de que um Pokémon pertence a um determinado tipo.
+- Confirmação de múltiplos Pokémons pertencentes a um tipo específico.
+- Validação de campos aleatórios de Pokémons sorteados da API.
+- Validação de imagens de pokemons.
+
+
+---
+
+## 📄 Casos de Teste
+
+### Endpoint: `/pokemon/{id}`
+
+- **Validar nome e forma do Pokémon retornado**
+  - Dado o ID de um Pokémon
+  - Quando buscar seus dados
+  - Então o nome retornado deve corresponder ao esperado.
+
+- **Validar habilidades e movimentos do Pokémon**
+  - Dado o ID de um Pokémon
+  - Quando buscar seus dados
+  - Então a primeira habilidade e o primeiro golpe devem ser os esperados.
+
+- **Validar campos de um Pokémon aleatório**
+  - Dado um ID aleatório
+  - Quando buscar os dados do Pokémon
+  - Então deve possuir:
+    - Nome do tipo string
+    - Habilidades como array
+    - Golpes como array
+    - Altura do tipo number.
+- **Validar imagem do pokemon**
+  - Dado o ID de um Pokémon
+  - Quando buscar seus dados
+  - Então a imagem do pokemon deve ser esperada
+  - **Validar formato da imagem**
+  - Dado o ID de um Pokémon
+  - Quando buscar seus dados
+  - Então a imagem do pokemon deve retornar com tipo PNG
+---
+
+### Endpoint: `/type/{id}`
+
+- **Validar tipo de um Pokémon específico**
+  - Dado o ID de um tipo
+  - Quando buscar Pokémons do tipo
+  - Então um Pokémon específico deve estar listado.
+
+- **Validar múltiplos Pokémons associados ao tipo**
+  - Dado o ID de um tipo
+  - Quando buscar Pokémons do tipo
+  - Então vários Pokémons esperados devem estar listados.
+
+- **Validar o tipo principal do Pokémon**
+  - Dado o ID do Pokémon
+  - Quando buscar seus dados
+  - Então o tipo principal deve ser o esperado.
+
+---
+
+### Endpoint: `/evolution-chain/{id}`
+
+- **Validar a linha evolutiva de um Pokémon**
+  - Dado o ID da cadeia de evolução
+  - Quando buscar a evolução
+  - Então a sequência de nomes dos Pokémons evoluídos deve ser exata.
+
+---
