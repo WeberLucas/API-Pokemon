@@ -1,10 +1,29 @@
-name: End-to-end tests
-on: push
+name: Cypress API Tests
+
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
+
     steps:
-      - name: Checkout
+      - name: Checkout código
         uses: actions/checkout@v4
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Rodar testes com Cypress
+        run: |
+          npx cypress run --reporter mochawesome
+
+      - name: Upload Mochawesome report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mochawesome-report
+          path: mochawesome-report
