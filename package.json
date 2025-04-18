@@ -1,4 +1,15 @@
 {
+  "name": "API-Pokemon",
+  "version": "1.0.0",
+  "description": "Testando API do Pokemon",
+  "main": "cypress.config.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "test": "cypress run"
+  },
+  "keywords": [],
+  "author": "Weber <weber13lucas@gmail.com> )",
+  "license": "MIT",
   "devDependencies": {
     "cypress": "^14.3.0",
     "cypress-mochawesome-reporter": "^3.8.2",
