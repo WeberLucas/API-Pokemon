@@ -206,7 +206,7 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
   - Quando buscar a evolução
   - Então a sequência de nomes dos Pokémons evoluídos deve ser exata.
 
- - **Validar a linha evolutiva do Ditto**
+- **Validar a linha do ditto**
   - Dado o ID da cadeia de evolução do ditto
   - Quando buscar a evolução
   - Então retorna apenas ditto.
