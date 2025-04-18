@@ -27,14 +27,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Cypress tests in parallel 🧪
-        uses: cypress-io/github-action@v6
-        env:
-          SPLIT: ${{ strategy.job-total }}
-          SPLIT_INDEX: ${{ strategy.job-index }}
+      - name: Run Cypress tests with split 🧪
+        run: |
+          npx cypress run \
+            --env SPLIT=2,SPLIT_INDEX=${{ matrix.containers }} \
+            --reporter mochawesome \
+            --reporter-options reportDir=cypress/reports/mochawesome,overwrite=false,html=true,json=false
 
       - name: Upload Mochawesome Report 📑
         uses: actions/upload-artifact@v4
         with:
           name: mochawesome-report-${{ matrix.containers }}
-          path: cypress/reports/mocha/**/index.html  # Caminho do relatório gerado
+          path: cypress/reports/mochawesome/index.html  # Caminho do relatório gerado
