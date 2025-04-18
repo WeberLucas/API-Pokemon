@@ -80,11 +80,12 @@ No GitHubActions eu deixei você decidir se deseja ver o relatório do próprio 
 
 Então no arquivo .github/workflows/ci.yml, está configurado para mostrar o relatório do cypress. Se você descomentar irá enviar o relatório do mochawesome para a pipeline.
 
-Exemplo relatório cypress no github actions:
-![Alt text](image.png)
+## Exemplo relatório Cypress no GitHub Actions:
+![Relatório Cypress](imagens/image.png)
 
-Exemplo relatório mochawesome(clique no ícone de download):
-![Alt text](image-1.png)
+## Exemplo relatório Mochawesome (clique no ícone de download):
+![Relatório Mochawesome](imagens/image-1.png)
+
 
 ## 🧪 Exemplos de Testes
 
