@@ -4,6 +4,7 @@ const cypressSplit = require('cypress-split'); //importa o cypress split
 module.exports = defineConfig({
   e2e: {
     baseUrl: 'https://pokeapi.co/api/v2',
+    fixturesFolder: false,
     experimentalRunAllSpecs: true, // Permite o botão "Run all specs" no Cypress open
     setupNodeEvents(on, config) {
       cypressSplit(on, config);
