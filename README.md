@@ -38,8 +38,8 @@ Este projeto contém testes automatizados usando Cypress, com foco em testes de 
 
 ### ✅ Cypress Plugin API
 
-Este plugin facilita o uso de `cy.api()` em testes de API para modo interativo(Open).
-Mostrando a requição na interface gráfica.
+Este plugin facilita o uso de API em modo interativo(Open).Mostrando a requição na interface gráfica.
+
 
 ```
 

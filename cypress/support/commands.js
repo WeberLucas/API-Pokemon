@@ -65,14 +65,5 @@ Cypress.Commands.add('validaImagemDoPokemon', (idPokemon, urlEsperada) => {
     expect(imagem).to.eq(urlEsperada);
   });
 });
-Cypress.Commands.add('validaSeImagemEPng', (idPokemon) => {
-  cy.api(`/pokemon/${idPokemon}`).then(({ status, body }) => {
-    expect(status, 'Status da resposta deve ser 200').to.eq(200);
-    const imagem = body.sprites.versions['generation-iv']['diamond-pearl'].front_default;
 
-    expect(imagem, 'URL da imagem deve começar com http ou https').to.match(/^https?:\/\/.+/);
-
-    expect(imagem, 'URL da imagem deve terminar com .png').to.match(/\.png$/);
-  });
-});
 

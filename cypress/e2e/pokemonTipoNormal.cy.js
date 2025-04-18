@@ -1,4 +1,4 @@
-describe('Testes com pokémons tipo elétrico', () => {
+describe('Testes com pokémons tipo normal', () => {
 
     it('Valida que a cadeia evolutiva do Ditto possui no máximo uma fase (sem evolução)', () => {
       const idCadeiaEvolutiva = 66; // id ditto
