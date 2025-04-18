@@ -1,10 +1,12 @@
 const { defineConfig } = require('cypress')
+const cypressSplit = require("cypress-split")
 
 module.exports = defineConfig({
   e2e: {
     baseUrl: 'https://pokeapi.co/api/v2',
     setupNodeEvents(on, config) {
-      // event listeners podem ser definidos aqui, se precisar
+      cypressSplit(on, config)
+      return config    
     },
 
     experimentalRunAllSpecs: true,//permite que ao rodar npx cypress open habilite o botão de rodar todos os testes 
