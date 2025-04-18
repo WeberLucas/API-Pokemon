@@ -401,3 +401,7 @@ FodyWeavers.xsd
 #mochawesome-report
 node_modules/
 reports/
+cypress.env.json
+cypress/downloads/
+cypress/screenshots/
+cypress/videos/
