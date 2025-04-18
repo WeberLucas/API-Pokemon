@@ -1,17 +1,41 @@
-name: Testes de API
-on: push
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 jobs:
   tests:
     runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
       matrix:
-        containers: [1, 2]
+        containers: [0, 1]
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Rodando testes em paralelo com Cypress Slipt 🧪
-        uses: cypress-io/github-action@v6
-        env:
-          SPLIT: ${{ strategy.job-total }}
-          SPLIT_INDEX: ${{ strategy.job-index }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests with split 🧪
+        run: |
+          npx cypress run \
+            --env SPLIT=2,SPLIT_INDEX=${{ matrix.containers }} \
+            --reporter cypress-mochawesome-reporter \
+            --reporter-options reportDir=cypress/reports/mochawesome,overwrite=false,html=true,json=false
+
+      - name: Upload Mochawesome Reports 📑
+        uses: actions/upload-artifact@v4
+        with:
+          name: mochawesome-report-${{ matrix.containers }}
+          path: cypress/reports/mochawesome
