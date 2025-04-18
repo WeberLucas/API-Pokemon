@@ -93,6 +93,10 @@ Então no arquivo .github/workflows/ci.yml, está configurado para mostrar o rel
 - [Link para acessar](https://github.com/WeberLucas/API-Pokemon/actions/runs/14539287869)
 ![Relatório Mochawesome](imagens/image-1.png)
 
+### 🧐Extras!!!!!!!
+
+Como dito acima, eu criei um arquivo de **pipeline de GitHub Actions**.  
+O **workflow de CI/CD** executa os testes de API em Cypress **sempre que commitar!** Além de gerar o relatório do cypress Split ou do Mochawesome.
 
 
 ## 🧪 Exemplos de Testes
@@ -105,8 +109,6 @@ cy.api('GET', '/pokemon/pikachu').then((res) => {
   expect(res.body.name).to.eq('pikachu')
 })
 ```
-
-### 🔹 Erro ao buscar Pokémon inexistente
 
 ```js
 cy.api('GET', '/pokemon/xablau').then((res) => {
@@ -121,6 +123,7 @@ cy.api('GET', '/pokemon/xablau').then((res) => {
 - [cypress-plugin-api](https://www.npmjs.com/package/cypress-plugin-api)
 - [mochawesome](https://www.npmjs.com/package/mochawesome)
 
+### 🔹 Erro ao buscar Pokémon inexistente
 
 
 ## 📋 Resumo do Mapeamento de Cenários
