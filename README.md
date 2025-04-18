@@ -96,7 +96,7 @@ Então no arquivo .github/workflows/ci.yml, está configurado para mostrar o rel
 ### 🧐Extras!!!!!!!
 
 Como dito acima, eu criei um arquivo de **pipeline de GitHub Actions**.  
-O **workflow de CI/CD** executa os testes de API em Cypress **sempre que commitar!** Além de gerar o relatório do cypress Split ou do Mochawesome.
+O **workflow de CI/CD** executa os testes de API em Cypress **sempre que commitar!** Além de gerar o relatório do Cypress Split ou do Mochawesome.
 
 
 ## 🧪 Exemplos de Testes
@@ -206,11 +206,11 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
   - Quando buscar a evolução
   - Então a sequência de nomes dos Pokémons evoluídos deve ser exata.
 
- **Validar a linha evolutiva do Ditto**
+ - **Validar a linha evolutiva do Ditto**
   - Dado o ID da cadeia de evolução do ditto
   - Quando buscar a evolução
   - Então retorna apenas ditto.
-**Validar que o primeiro pokemon da cadeia está com letras minúsculas**
+- **Validar que o primeiro pokemon da cadeia está com letras minúsculas**
   - Dado o ID da cadeia de evolução
   - Quando buscar a evolução
   - Então retorna o nome em letras minúsculas.
