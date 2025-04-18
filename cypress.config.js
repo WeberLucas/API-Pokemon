@@ -10,11 +10,19 @@ module.exports = defineConfig({
     experimentalRunAllSpecs: true,//permite que ao rodar npx cypress open habilite o botão de rodar todos os testes 
     //este botão fica ao lado de componet specs
   },
-  reporter: 'mochawesome',
+  reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
-    reportDir: 'cypress/reports/mochawesome',
-    overwrite: true,     
-    html: true,          
-    json: false           
+    charts: true,
+    reportPageTitle: 'custom-title',
+    embeddedScreenshots: true,
+    inlineAssets: true,
+    saveAllAttempts: false,
+    mochawesomeReporterOptions: {
+      reportDir: 'cypress/reports/mocha',
+      quite: true,
+      overwrite: false,
+      html: false,
+      json: true,
+    },
   },
 })
