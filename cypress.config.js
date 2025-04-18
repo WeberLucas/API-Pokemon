@@ -1,30 +1,32 @@
-const { defineConfig } = require('cypress')
-const cypressSplit = require("cypress-split")
+const { defineConfig } = require('cypress');
+const cypressSplit = require('cypress-split'); //importa o cypress split
 
 module.exports = defineConfig({
   e2e: {
     baseUrl: 'https://pokeapi.co/api/v2',
+    experimentalRunAllSpecs: true, // Permite o botão "Run all specs" no Cypress open
     setupNodeEvents(on, config) {
-      cypressSplit(on, config)
-      return config    
-    },
+      cypressSplit(on, config);
+      
+      require('cypress-mochawesome-reporter/plugin')(on);
 
-    experimentalRunAllSpecs: true,//permite que ao rodar npx cypress open habilite o botão de rodar todos os testes 
-    //este botão fica ao lado de componet specs
-  },
-  reporter: 'cypress-mochawesome-reporter',
-  reporterOptions: {
-    charts: true,
-    reportPageTitle: 'custom-title',
-    embeddedScreenshots: true,
-    inlineAssets: true,
-    saveAllAttempts: false,
-    mochawesomeReporterOptions: {
-      reportDir: 'cypress/reports/mocha',
-      quite: true,
-      overwrite: false,
-      html: false,
-      json: true,
+      return config; 
+    },
+    //configura o mocha
+    reporter: 'cypress-mochawesome-reporter',
+    reporterOptions: {
+      charts: true,
+      reportPageTitle: 'custom-title',
+      embeddedScreenshots: true,
+      inlineAssets: true,
+      saveAllAttempts: false,
+      mochawesomeReporterOptions: {
+        reportDir: 'cypress/reports/mocha',
+        quiet: true,
+        overwrite: false,
+        html: true,
+        json: true,
+      },
     },
   },
-})
+});
