@@ -400,3 +400,5 @@ FodyWeavers.xsd
 *.sln.iml
 #mochawesome-report
 mochawesome-report/
+node_modules/
+
