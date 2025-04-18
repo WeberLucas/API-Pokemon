@@ -210,6 +210,7 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
   - Dado o ID da cadeia de evolução do ditto
   - Quando buscar a evolução
   - Então retorna apenas ditto.
+
 - **Validar que o primeiro pokemon da cadeia está com letras minúsculas**
   - Dado o ID da cadeia de evolução
   - Quando buscar a evolução
