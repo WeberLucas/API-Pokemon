@@ -1,19 +1,24 @@
-describe('Testes com pokemon tipo elétrico', () => {
-    it('Valida linha evolutiva de pichu com suas habilidades e movimentos', () => {
-      cy.validaNomeDoPokemon(172, 'pichu');
-      cy.validaNomeDoPokemon(25, 'pikachu');
-      cy.validaNomeDoPokemon(26, 'raichu');
-      cy.verificaHabilidade(172, 'static','double-slap');
-      cy.verificaHabilidade(25, 'static','mega-punch');
-      cy.verificaHabilidade(26, 'static','mega-punch');
-    });
+// Testes relacionados a Pokémons do tipo elétrico
+describe('Testes com pokémons tipo elétrico', () => {
   
-  it('valida tipo do pokemon',()=>{
-    cy.validaTipoPokemon(172,'electric')
-  })
+  it('Valida linha evolutiva de Pichu, Pikachu e Raichu', () => {
+    // Valida o nome dos pokémons na linha evolutiva
+    cy.validaNomeDoPokemon(172, 'pichu');
+    cy.validaNomeDoPokemon(25, 'pikachu');
+    cy.validaNomeDoPokemon(26, 'raichu');
 
-  it('valida se o pokemon consta na lista do tipo elétrico',()=>{
-    cy.validaPokemonDoTipo(13,'electabuzz')
-  })
+    // Verifica habilidades e movimentos principais
+    cy.verificaHabilidade(172, 'static', 'double-slap');
+    cy.verificaHabilidade(25, 'static', 'mega-punch');
+    cy.verificaHabilidade(26, 'static', 'mega-punch');
   });
-  
+
+  it('Valida o tipo do Pichu como elétrico', () => {
+    cy.validaTipoPokemon(172, 'electric');
+  });
+
+  it('Valida se o Electabuzz está listado como tipo elétrico', () => {
+    cy.validaPokemonDoTipo(13, 'electabuzz');
+  });
+
+});
