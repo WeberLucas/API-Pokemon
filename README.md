@@ -144,7 +144,8 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
 - Validação de imagens de pokemons.
 - Validação de sequência evolutiva 
 - Validação de padrão da api de letra minúsculas
-
+- Validação de nome pokemon em vários idiomas
+- Validação de URL do idioma 
 
 ---
 
@@ -216,3 +217,17 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
   - Quando buscar a evolução
   - Então retorna o nome em letras minúsculas.
 ---
+
+
+### Endpoint: `/pokemon-species/{id}`
+
+- **Validar nome em vários idiomas**
+  - Dado o ID de uma espécie
+  - Quando uma espécie
+  - Então deve retornar o nome em várias idiomas diferentes.
+- **Validar url dos vários idiomas**
+  - Dado o ID de uma espécie
+  - Quando uma espécie
+  - Então deve retornar o URL correta em várias idiomas diferentes.
+---
+

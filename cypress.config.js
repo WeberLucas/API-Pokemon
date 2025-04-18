@@ -11,6 +11,7 @@ module.exports = defineConfig({
       require('cypress-mochawesome-reporter/plugin')(on);
       return config;
     },
+    //configura o mocha
     reporter: 'cypress-mochawesome-reporter',
     reporterOptions: {
       reportDir: 'cypress/reports/mochawesome',

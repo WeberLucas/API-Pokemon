@@ -29,7 +29,6 @@ Cypress.Commands.add('validaPokemonDoTipo', (tipoId, nomeEsperado) => {
 });
 
 
-
 Cypress.Commands.add('validaPokemonsDoTipo', (tipoId, listaEsperada) => {
   cy.api(`/type/${tipoId}`).then(({ status, body }) => {
     expect(status).to.eq(200);
@@ -65,5 +64,13 @@ Cypress.Commands.add('validaImagemDoPokemon', (idPokemon, urlEsperada) => {
     expect(imagem).to.eq(urlEsperada);
   });
 });
+Cypress.Commands.add('validarIdioma', (idEspecie,idiomaEsperado) => {
+  cy.api(`/pokemon-species/${idEspecie}`).then(({ status, body }) => {
+    expect(status).to.eq(200);
+    expect(body.names[0].language.name).to.eq(idiomaEsperado);
+  });
+});
+
+
 
 
