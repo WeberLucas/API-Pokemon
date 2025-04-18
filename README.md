@@ -98,17 +98,6 @@ cy.api('GET', '/pokemon/xablau').then((res) => {
 })
 ```
 
-## 📁 Estrutura de Pastas
-
-```
-cypress/
-├── e2e/
-│   └── pokeapi.cy.js
-├── support/
-│   └── e2e.js
-cypress.config.js
-```
-
 ## 📝 Referências
 
 - [PokeAPI Docs](https://pokeapi.co/docs/v2)
