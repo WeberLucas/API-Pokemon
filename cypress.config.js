@@ -8,6 +8,8 @@ module.exports = defineConfig({
     },
     specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
     supportFile: 'cypress/support/e2e.js',
+    experimentalRunAllSpecs: true,//permite que ao rodar npx cypress open habilite o botão de rodar todos os testes 
+
   },
   reporter: 'mochawesome',
   reporterOptions: {
