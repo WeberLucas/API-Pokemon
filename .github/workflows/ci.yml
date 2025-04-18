@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [0, 1] # 0 = primeira metade, 1 = segunda metade
+        containers: [0, 1]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -29,10 +29,10 @@ jobs:
 
       - name: Run Cypress tests with split 🧪
         run: |
-          npx cypress run --reporter mochawesome --reporter-options reportDir=cypress/reports/mochawesome,overwrite=false,html=true,json=false
-        env:
-          SPLIT: 2
-          SPLIT_INDEX: ${{ matrix.containers }}
+          npx cypress run \
+            --env SPLIT=2,SPLIT_INDEX=${{ matrix.containers }} \
+            --reporter mochawesome \
+            --reporter-options reportDir=cypress/reports/mochawesome,overwrite=false,html=true,json=false
 
       - name: Upload Mochawesome Reports 📑
         uses: actions/upload-artifact@v4
