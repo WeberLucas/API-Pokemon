@@ -14,8 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [0, 1]  # Atualizado para [0, 1] em vez de [1, 2]
-
+        containers: [0, 1]  
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -45,4 +44,13 @@ jobs:
           name: mochawesome-report-${{ strategy.job-index }}
           path: cypress/reports/mochawesome
 
-
+      - name: Upload Cypress Test Results 📊
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-test-results-${{ strategy.job-index }}
+          path: cypress/results
+          
+      - name: Display Cypress Results Summary
+        run: |
+          echo "Cypress Test Results Summary:"
+          cat cypress/results/*.txt
