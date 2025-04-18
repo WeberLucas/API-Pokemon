@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [0, 1]  
+        containers: [0, 1]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -32,6 +32,7 @@ jobs:
         env:
           SPLIT: ${{ strategy.job-total }}
           SPLIT_INDEX: ${{ strategy.job-index }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}  # Aqui você passa o segredo
         with:
           command: |
             npx cypress run --record --key ${{ secrets.CYPRESS_RECORD_KEY }}
