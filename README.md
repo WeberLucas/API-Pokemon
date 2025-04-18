@@ -20,28 +20,26 @@ Este projeto contém testes automatizados usando Cypress, com foco em testes de 
 
 2. Instale as dependências:
    ```bash
-   npm install cypress
+   npm install 
    ```
 
 3. Execute os testes em modo headless com relatório:
    ```bash
-   npx cypress run --reporter mochawesome
+   npx cypress run || npm run test
    ```
 
    Ou, modo interativo:
    ```bash
-   npx cypress open
+   npx cypress open || npm run cy:open
+
    ```
 
-## 📦 Instalação dos Plugins
+## 📦 Plugins
 
 ### ✅ Cypress Plugin API
 
-Este plugin facilita o uso de `cy.api()` em testes de API.
+Este plugin facilita o uso de `cy.api()` em testes de API para modo interativo(Open).
 
-Instalação:
-```bash
-npm install cypress-plugin-api --save-dev
 ```
 
 Importe no seu projeto:
@@ -53,12 +51,8 @@ import 'cypress-plugin-api'
 
 ### 📊 Mochawesome
 
-Para gerar relatórios de execução:
+Para gerar relatórios de execução.
 
-Instalação:
-```bash
-npm install --save-dev cypress-mochawesome-reporter
-```
 
 No `cypress.config.js`:
 
@@ -78,6 +72,19 @@ module.exports = defineConfig({
   },
 })
 ```
+### Dicas sobre relatórios!
+
+Quando baixar o projeto e executar npx cypress run ou npm run test o mochawesome report irá criar um arquivo HTML, basta abrir o mesmo para ver o relatório.
+
+No GitHubActions eu deixei você decidir se deseja ver o relatório do próprio cypress ou do mochawesome.
+
+Então no arquivo .github/workflows/ci.yml, está configurado para mostrar o relatório do cypress. Se você descomentar irá enviar o relatório do mochawesome para a pipeline.
+
+Exemplo relatório cypress no github actions:
+![Alt text](image.png)
+
+Exemplo relatório mochawesome(clique no ícone de download):
+![Alt text](image-1.png)
 
 ## 🧪 Exemplos de Testes
 
