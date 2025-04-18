@@ -6,12 +6,20 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [1, 2]
+        containers: [1, 2] # definianod que irei rodas os testes em simultaneos 
     steps:
+      #abrindo projeto no github actions
       - name: Checkout
         uses: actions/checkout@v4
+      #rodando testes em paralelo
       - name: Run Cypress tests in parallel 🧪
         uses: cypress-io/github-action@v6
         env:
           SPLIT: ${{ strategy.job-total }}
           SPLIT_INDEX: ${{ strategy.job-index }}
+      #criando um artefato com o relatório do Mocha
+      - name: Upload Mochawesome Report 📑
+        uses: actions/upload-artifact@v4
+        with:
+          name: mochawesome-report
+          path: cypress/reports/mocha/index.html  # Caminho do relatório gerado
