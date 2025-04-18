@@ -45,19 +45,4 @@ jobs:
           name: mochawesome-report-${{ strategy.job-index }}
           path: cypress/reports/mochawesome
 
-  merge-reports:
-    needs: tests
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Download Mochawesome Report 0
-        uses: actions/download-artifact@v4
-        with:
-          name:
