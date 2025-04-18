@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [1, 2]  #  Definindo quantos jobs paralelos vão rodar
+        containers: [1, 2]  # Divide os testes em 2 pipelines
 
     steps:
       - name: Checkout repository
@@ -44,3 +44,32 @@ jobs:
         with:
           name: mochawesome-report-${{ strategy.job-index }}
           path: cypress/reports/mochawesome
+
+  merge-reports:
+    needs: tests
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Download all reports
+        uses: actions/download-artifact@v4
+        with:
+          path: merged-reports
+
+      - name: Merge Mochawesome Reports
+        run: |
+          npm install mochawesome-merge mochawesome-report-generator
+          npx mochawesome-merge merged-reports/**/mochawesome*.json > merged-report.json
+          npx marge merged-report.json -f report -o merged-reports/final-report
+
+      - name: Upload Final Report 📦
+        uses: actions/upload-artifact@v4
+        with:
+          name: final-mochawesome-report
+          path: merged-reports/final-report
