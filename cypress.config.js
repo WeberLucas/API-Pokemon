@@ -15,18 +15,10 @@ module.exports = defineConfig({
     //configura o mocha
     reporter: 'cypress-mochawesome-reporter',
     reporterOptions: {
-      charts: true,
-      reportPageTitle: 'custom-title',
-      embeddedScreenshots: true,
-      inlineAssets: true,
-      saveAllAttempts: false,
-      mochawesomeReporterOptions: {
-        reportDir: 'cypress/reports/mocha',
-        quiet: true,
-        overwrite: false,
-        html: true,
-        json: true,
-      },
-    },
+      reportDir: 'cypress/reports/mochawesome',
+      overwrite: false,
+      html: true,
+      json: false,
   },
+},
 });
