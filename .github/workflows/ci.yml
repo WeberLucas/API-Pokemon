@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [0, 1]
+        containers: [0, 1]  
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -27,15 +27,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Cypress tests with split 🧪
+      - name: Run Cypress tests with split and mochawesome 🧪
         uses: cypress-io/github-action@v6
         env:
           SPLIT: ${{ strategy.job-total }}
           SPLIT_INDEX: ${{ strategy.job-index }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}  # Aqui você passa o segredo
         with:
           command: |
-            npx cypress run --record --key ${{ secrets.CYPRESS_RECORD_KEY }}
+            npx cypress run \
+              --reporter cypress-mochawesome-reporter \
+              --reporter-options reportDir=cypress/reports/mochawesome,overwrite=false,html=true,json=true
 
       - name: Upload Mochawesome Report 📑
         uses: actions/upload-artifact@v4
@@ -43,8 +44,4 @@ jobs:
           name: mochawesome-report-${{ strategy.job-index }}
           path: cypress/reports/mochawesome
 
-      - name: Upload Cypress Test Results 📊
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-test-results-${{ strategy.job-index }}
-          path: cypress/results
+
