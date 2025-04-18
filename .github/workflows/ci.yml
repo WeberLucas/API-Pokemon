@@ -14,21 +14,26 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [1, 2]  # OBS: igual seu primeiro exemplo
+        containers: [0, 1]
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run Cypress tests with split 🧪
-        uses: cypress-io/github-action@v6
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          install: true
-          env: |
-            SPLIT=2
-            SPLIT_INDEX=${{ matrix.containers }}
-          reporter: cypress-mochawesome-reporter
-          reporter-options: reportDir=cypress/reports/mochawesome,overwrite=false,html=true,json=false
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests with split 🧪
+        run: |
+          npx cypress run \
+            --env SPLIT=2,SPLIT_INDEX=${{ matrix.containers }} \
+            --reporter cypress-mochawesome-reporter \
+            --reporter-options reportDir=cypress/reports/mochawesome,overwrite=false,html=true,json=false
 
       - name: Upload Mochawesome Reports 📑
         uses: actions/upload-artifact@v4
