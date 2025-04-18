@@ -39,6 +39,7 @@ Este projeto contém testes automatizados usando Cypress, com foco em testes de 
 ### ✅ Cypress Plugin API
 
 Este plugin facilita o uso de `cy.api()` em testes de API para modo interativo(Open).
+Mostrando a requição na interface gráfica.
 
 ```
 
@@ -48,6 +49,11 @@ Importe no seu projeto:
 // No arquivo cypress/support/e2e.js
 import 'cypress-plugin-api'
 ```
+
+
+### ✅ Cypress Split Plugin
+
+Permite utilizar o GitHub Actions com paralelização.
 
 ### 📊 Mochawesome
 
@@ -72,7 +78,7 @@ module.exports = defineConfig({
   },
 })
 ```
-### Dicas sobre relatórios!
+### 🧩 Dicas sobre relatórios!
 
 Quando baixar o projeto e executar npx cypress run ou npm run test o mochawesome report irá criar um arquivo HTML, basta abrir o mesmo para ver o relatório.
 
@@ -133,6 +139,8 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
 - Confirmação de múltiplos Pokémons pertencentes a um tipo específico.
 - Validação de campos aleatórios de Pokémons sorteados da API.
 - Validação de imagens de pokemons.
+- Validação de sequência evolutiva 
+- Validação de padrão da api de letra minúsculas
 
 
 ---
@@ -195,4 +203,12 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
   - Quando buscar a evolução
   - Então a sequência de nomes dos Pokémons evoluídos deve ser exata.
 
+ **Validar a linha evolutiva do Ditto**
+  - Dado o ID da cadeia de evolução do ditto
+  - Quando buscar a evolução
+  - Então retorna apenas ditto.
+**Validar que o primeiro pokemon da cadeia está com letras minúsculas**
+  - Dado o ID da cadeia de evolução
+  - Quando buscar a evolução
+  - Então retorna o nome em letras minúsculas.
 ---

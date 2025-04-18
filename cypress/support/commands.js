@@ -1,8 +1,8 @@
 Cypress.Commands.add('verificaHabilidade', (idPokemon, habilidadeEsperada, golpeEsperado) => {
-  cy.api(`/pokemon/${idPokemon}`).then((response) => {
-    expect(response.status).to.eq(200);
-    expect(response.body.abilities[0].ability.name).to.eq(habilidadeEsperada);
-    expect(response.body.moves[0].move.name).to.eq(golpeEsperado);
+  cy.api(`/pokemon/${idPokemon}`).then(({ status, body }) => {
+    expect(status).to.eq(200);
+    expect(body.abilities[0].ability.name).to.eq(habilidadeEsperada);
+    expect(body.moves[0].move.name).to.eq(golpeEsperado);
   });
 });
 
@@ -11,18 +11,6 @@ Cypress.Commands.add('validaNomeDoPokemon', (idPokemon, nomeEsperado) => {
     expect(response.status).to.eq(200);
     expect(response.body.forms[0].name).to.eq(nomeEsperado);
     expect(response.body.name).to.eq(nomeEsperado);
-  });
-});
-
-Cypress.Commands.add('validaPokemonAleatorio', () => {
-  const idPokemon = Math.floor(Math.random() * 1025) + 1;
-
-  cy.api(`/pokemon/${idPokemon}`).then((response) => {
-    expect(response.status).to.eq(200);
-    expect(response.body.name).to.be.a('string');
-    expect(response.body.abilities).to.be.an('array').and.to.have.length.greaterThan(0);
-    expect(response.body.moves).to.be.an('array').and.to.have.length.greaterThan(0);
-    expect(response.body.height).to.be.a('number');
   });
 });
 
