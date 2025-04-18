@@ -399,6 +399,5 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 #mochawesome-report
-mochawesome-report/
 node_modules/
-
+reports/

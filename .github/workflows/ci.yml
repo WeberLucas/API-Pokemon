@@ -1,4 +1,4 @@
-name: Cypress Tests
+name: End-to-end tests
 
 on:
   push:
@@ -9,26 +9,26 @@ on:
       - main
 
 jobs:
-  cypress-run:
-    runs-on: ubuntu-latest
-
+  tests:
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2]
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'  # Pode ser 18 ou 20, dependendo do seu projeto
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Run Cypress tests
-        run: npx cypress run --reporter mochawesome --reporter-options reportDir=cypress/reports/mochawesome,overwrite=false,html=false,json=true
-
-      - name: Upload Mochawesome Reports
-        uses: actions/upload-artifact@v4
-        with:
-          name: mochawesome-report
-          path: cypress/reports/mochawesome
+      - name: Run Cypress tests in parallel 🧪
+        uses: cypress-io/github-action@v6
+        env:
+          SPLIT: 2
+          SPLIT_INDEX: ${{ strategy.job-index }}
