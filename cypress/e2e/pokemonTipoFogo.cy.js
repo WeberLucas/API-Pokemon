@@ -1,9 +1,9 @@
 describe('Testes com pokemon tipo fogo', () => {
   it('Valida linha evolutiva de fennekin com suas habilidades e movimentos', () => {
-    cy.validaNomeDoPokemon(653, 'fennekin');
+    cy.validaNomeDoPokemon(653, 'fennekin');// id, nome
     cy.validaNomeDoPokemon(654, 'braixen');
     cy.validaNomeDoPokemon(655, 'delphox');
-    cy.verificaHabilidade(653, 'blaze', 'scratch');
+    cy.verificaHabilidade(653, 'blaze', 'scratch');//id, habilidade, movimento
     cy.verificaHabilidade(654, 'blaze', 'fire-punch');
     cy.verificaHabilidade(655, 'blaze', 'fire-punch');
   });
