@@ -2,14 +2,6 @@
 
 Este projeto contém testes automatizados usando Cypress, com foco em testes de API na [PokeAPI](https://pokeapi.co/).
 
-## 🔧 Tecnologias
-
-- [Cypress](https://www.cypress.io/)
-- [cypress-plugin-api](https://www.npmjs.com/package/cypress-plugin-api)
-- [mochawesome](https://www.npmjs.com/package/mochawesome)
-- JavaScript
-- Node.js
-
 ## ▶️ Como executar os testes
 
 1. Clone este repositório:
@@ -133,6 +125,8 @@ cy.api('GET', '/pokemon/xablau').then((res) => {
 - [Cypress](https://docs.cypress.io)
 - [cypress-plugin-api](https://www.npmjs.com/package/cypress-plugin-api)
 - [mochawesome](https://www.npmjs.com/package/mochawesome)
+- [cypress-plugin-slipt](https://www.npmjs.com/package/cypress-split)
+
 
 ### 🔹 Erro ao buscar Pokémon inexistente
 
