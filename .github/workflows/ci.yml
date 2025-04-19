@@ -27,11 +27,13 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Cypress tests with split and mochawesome 🧪
+      - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         env:
           SPLIT: ${{ strategy.job-total }}
           SPLIT_INDEX: ${{ strategy.job-index }}
+       #caso queira rodar a pipeline com mocha basta descomentar esse código, caso não descomente o relatório da pipilene
+       #será do cypress
        # with:
         #  command: |
           #  npx cypress run \
