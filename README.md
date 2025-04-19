@@ -144,6 +144,9 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
 - Validação de dados de Pokémon (`/pokemon/{id}`)
 - Validação de tipos de Pokémon (`/type/{id}`)
 - Validação de cadeia evolutiva de Pokémon (`/evolution-chain/{id}`)
+- Validação de espécies Pokémon (`/pokemon-species/{id}`)
+- Validação de frutas Pokémon (`/berry/{id}`)
+
 
 **Cenários mapeados:**
 
@@ -163,6 +166,7 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
 - Validação de stats(atributos de desempenho no jogo) do Pokémon Dragonite 
 - Validação da quantidade e ordem dos stats
 - Validação da quantidade e ordem dos stats
+- Validação se o Pokémon é mítico ou lendário
 ---
 
 ## 📄 Casos de Teste
@@ -295,6 +299,20 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
   - Dado o ID de uma espécie
   - Quando consultar os dados da espécie
   - Então a curva de aprendizagem (growth_rate.name) deve ser exibida corretamente
+
+- **Validar que o pokemon é mítico**
+  - Dado o ID de uma espécie mítica
+  - Quando consultar os dados da espécie
+  - Então o Pokémon deve ser marcado como mítico
+  - E não deve ser marcado como lendário
+
+- **Validar que o pokemon é Lendário**
+  - Dado o ID de uma espécie lendário
+  - Quando consultar os dados da espécie
+  - Então o Pokémon deve ser marcado como lendário
+  - E não deve ser marcado como mítico
+
+
 
 ---
 
