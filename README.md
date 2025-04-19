@@ -112,12 +112,14 @@ cy.api('GET', '/pokemon/pikachu').then((res) => {
   expect(res.body.name).to.eq('pikachu')
 })
 ```
+### 🔹 Erro ao buscar Pokémon inexistente
 
 ```js
 cy.api('GET', '/pokemon/xablau').then((res) => {
   expect(res.status).to.eq(404)
 })
 ```
+
 
 ## 📝 Referências
 
@@ -126,6 +128,8 @@ cy.api('GET', '/pokemon/xablau').then((res) => {
 - [cypress-plugin-api](https://www.npmjs.com/package/cypress-plugin-api)
 - [mochawesome](https://www.npmjs.com/package/mochawesome)
 - [cypress-plugin-slipt](https://www.npmjs.com/package/cypress-split)
+
+
 
 
 ## 📋 Resumo do Mapeamento de Cenários
