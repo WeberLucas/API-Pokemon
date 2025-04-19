@@ -225,6 +225,20 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
   - Quando buscar seus dados
   - Então o tipo principal deve ser o esperado.
 
+- **Validar fraquezas do tipo do pokemon**
+  - Dado o ID do tipo do pokemon
+  - Quando buscar seus dados
+  - Então deve mostrar os tipos que ele é fraco
+
+**Validar resistências do tipo do pokemon**
+  - Dado o ID do tipo do  Pokémon
+  - Quando buscar seus dados
+  - ntão deve exibir os tipos que ele é resistente 
+
+  **Validar imunidades do tipo Fantasma**
+  - Dado o ID do tipo do  Pokémon
+  - Quando buscar seus dados
+  - Então deve exibir os tipos que ele é imune
 ---
 
 ### Endpoint: `/evolution-chain/{id}`
