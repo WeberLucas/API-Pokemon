@@ -191,26 +191,27 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
     - Habilidades como array
     - Golpes como array
     - Altura do tipo number.
+
 - **Validar imagem do pokemon**
   - Dado o ID de um Pokémon
   - Quando buscar seus dados
   - Então a imagem do pokemon deve ser esperada
-  - **Validar formato da imagem**
+- **Validar formato da imagem**
   - Dado o ID de um Pokémon
   - Quando buscar seus dados
   - Então a imagem do pokemon deve retornar com tipo PNG
 
-  - **Validar o stats(atributos de desempenho no jogo) do Pokémon **
+- **Validar o stats(atributos de desempenho no jogo) do Pokémon**
   - Dado o ID de um Pokémon
   - Quando buscar seus dados
   - Então deve retornar hp, attack,defense,special-attack,special-defense e speed
 
-  - **Validar a quantidade e ordem dos stats**
+- **Validar a quantidade e ordem dos stats**
   - Dado o ID de um Pokémon
   - Quando buscar seus dados
   - Então deve retornar os valores de hp, attack,defense,special-attack,special-defense e speed
 
-  - **Validar a quantidade e ordem dos stats**
+ - **Validar a quantidade e ordem dos stats**
   - Dado o ID de um Pokémon
   - Quando buscar seus dados()
   - Então deve retornaros dados de status na ordem correta:
