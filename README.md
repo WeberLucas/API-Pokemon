@@ -206,12 +206,12 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
   - Quando buscar seus dados
   - Então deve retornar hp, attack,defense,special-attack,special-defense e speed
 
-- **Validar a quantidade e ordem dos stats**
+- **Validar a quantidade de status**
   - Dado o ID de um Pokémon
   - Quando buscar seus dados
   - Então deve retornar os valores de hp, attack,defense,special-attack,special-defense e speed
 
- - **Validar a quantidade e ordem dos stats**
+- **Validar a ordem dos stats**
   - Dado o ID de um Pokémon
   - Quando buscar seus dados()
   - Então deve retornaros dados de status na ordem correta:
