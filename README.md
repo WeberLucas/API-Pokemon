@@ -158,7 +158,7 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
 - Validação se o pokemon é um baby
 - Validação da curva de aprendizagem do pokemon (Quanto de xp ele precisa para subir de nível)
 - Validação que pokemons de primeira forma de evolução tenham evolves_from_species null
-- Validação de stats(atributos de desempenho no jogo) do Pokémon Dragonite 
+- Validação de stats(atributos de desempenho no jogo) do Pokémon
 - Validação da quantidade e ordem dos stats
 - Validação da quantidade e ordem dos stats
 - Validação se o Pokémon é mítico ou lendário
