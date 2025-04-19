@@ -55,6 +55,17 @@ import 'cypress-plugin-api'
 
 Permite utilizar o GitHub Actions com paralelização.
 
+No `cypress.config.js`:
+``` 
+const cypressSplit = require('cypress-split'); // Importa o cypress-split
+
+
+setupNodeEvents(on, config) {
+      cypressSplit(on, config);
+}
+```
+
+
 ### 📊 Mochawesome
 
 Para gerar relatórios de execução.
