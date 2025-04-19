@@ -10,4 +10,10 @@ it('Verifica se o primeiro Pokémon da cadeia está em letras minúsculas', () =
       expect(nome).to.eq(nome.toLowerCase());
     });
   });
+  it('Verifica que Bulbasaur não evolui de nenhuma outra espécie (evolves_from_species é null)', () => {
+    cy.api('/pokemon-species/1').then(({ status, body }) => {
+      expect(status).to.eq(200);
+      expect(body.evolves_from_species).to.be.null;
+    });
+  }); 
 });

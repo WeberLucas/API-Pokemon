@@ -29,7 +29,7 @@ Cypress.Commands.add('validaPokemonDoTipo', (tipoId, nomeEsperado) => {
 });
 
 
-Cypress.Commands.add('validaPokemonsDoTipo', (tipoId, listaEsperada) => {
+Cypress.Commands.add('verificarPokemonsDoTipo', (tipoId, listaEsperada) => {
   cy.api(`/type/${tipoId}`).then(({ status, body }) => {
     expect(status).to.eq(200);
 

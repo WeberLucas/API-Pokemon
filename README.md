@@ -146,6 +146,9 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
 - Validação de padrão da api de letra minúsculas
 - Validação de nome pokemon em vários idiomas
 - Validação de URL do idioma 
+- Validar se o pokemon é um baby
+- Validar curva de aprendizagem do pokemon (Quanto de xp ele precisa para subir de nível)
+- Validar que pokemons de primeira forma de evolução tenham evolves_from_species null
 
 ---
 
@@ -223,11 +226,25 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
 
 - **Validar nome em vários idiomas**
   - Dado o ID de uma espécie
-  - Quando uma espécie
+  - Quando consultar os dados da espécie
   - Então deve retornar o nome em várias idiomas diferentes.
 - **Validar url dos vários idiomas**
   - Dado o ID de uma espécie
   - Quando uma espécie
   - Então deve retornar o URL correta em várias idiomas diferentes.
+  - **Validar se o pokemon é um baby**
+  - Dado o ID de uma espécie
+  - Quando consultar os dados da espécie
+  - Então deve se o pokemon é um baby 
+
+  - **Validar curva de aprendizagem do pokemon**
+  - Dado o ID de uma espécie
+  - Quando consultar os dados da espécie
+  - Então a curva de aprendizagem (growth_rate.name) deve ser exibida corretamente
+
+  - **Validar que pokemon de primeira forma seja evolves_from_species null**
+  - Dado o ID de uma espécie
+  - Quando consultar os dados da espécie
+  - Então a curva de aprendizagem (growth_rate.name) deve ser exibida corretamente
 ---
 

@@ -1,20 +1,44 @@
 describe('Testes com pokémons tipo fantasma', () => {
-    it('Validando nome do Gastly em vários idiomas', () => {
-      cy.validarIdioma(92, 'ja-Hrkt'); // id e idioma
   
-      cy.api(`/pokemon-species/92`).then(({ status, body }) => {
-        expect(status).to.eq(200);
-        expect(body.names[0].name).to.eq('ゴース');
+    context('Validação de nomes em diferentes idiomas', () => {
+      it('Deve validar o nome do Gastly em japonês e romaji', () => {
+        cy.validarIdioma(92, 'ja-Hrkt'); // id e idioma
+  
+        cy.api(`/pokemon-species/92`).then(({ status, body }) => {
+          expect(status).to.eq(200);
+          expect(body.names[0].name).to.eq('ゴース'); // japonês
+          expect(body.names[1].name).to.eq('Ghos');   // romaji
+        });
       });
     });
   
-    it('Validando URL do idioma do Gastly', () => {
-      cy.validarIdioma(92, 'ja-Hrkt'); // id e idioma 
+    context('Validação de URLs de idiomas', () => {
+      it('Deve validar as URLs dos idiomas do Gastly', () => {
+        cy.validarIdioma(92, 'ja-Hrkt'); // id e idioma 
   
-      cy.api(`/pokemon-species/92`).then(({ status, body }) => {
-        expect(status).to.eq(200);
-        expect(body.names[0].language.url).to.eq('https://pokeapi.co/api/v2/language/1/');
+        cy.api(`/pokemon-species/92`).then(({ status, body }) => {
+          expect(status).to.eq(200);
+          expect(body.names[0].language.url).to.eq('https://pokeapi.co/api/v2/language/1/'); // ja-Hrkt
+          expect(body.names[1].language.url).to.eq('https://pokeapi.co/api/v2/language/2/'); // roomaji
+        });
       });
     });
+  
+    context('Validação de atributos da curva de aprendizagem do Pokémon', () => {
+      it('Deve verificar que growth_rate.name é "medium slow"', () => {
+        cy.api('/pokemon-species/92').then(({ status, body }) => {
+          expect(status).to.eq(200);
+          expect(body.growth_rate.name).to.eq('medium-slow');
+        });
+      });
+  
+      it('Deve verificar que o campo is_baby está como false', () => {
+        cy.api('/pokemon-species/92').then(({ status, body }) => {
+          expect(status).to.eq(200);
+          expect(body.is_baby).to.be.false;
+        });
+      });
+    });
+  
   });
   
