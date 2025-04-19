@@ -146,10 +146,12 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
 - Validação de padrão da api de letra minúsculas
 - Validação de nome pokemon em vários idiomas
 - Validação de URL do idioma 
-- Validar se o pokemon é um baby
-- Validar curva de aprendizagem do pokemon (Quanto de xp ele precisa para subir de nível)
-- Validar que pokemons de primeira forma de evolução tenham evolves_from_species null
-
+- Validação se o pokemon é um baby
+- Validação da curva de aprendizagem do pokemon (Quanto de xp ele precisa para subir de nível)
+- Validação que pokemons de primeira forma de evolução tenham evolves_from_species null
+- Validação de stats(atributos de desempenho no jogo) do Pokémon Dragonite 
+- Validação da quantidade e ordem dos stats
+- Validação da quantidade e ordem dos stats
 ---
 
 ## 📄 Casos de Teste
@@ -182,6 +184,28 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
   - Dado o ID de um Pokémon
   - Quando buscar seus dados
   - Então a imagem do pokemon deve retornar com tipo PNG
+
+  - **Validar o stats(atributos de desempenho no jogo) do Pokémon Dragonite**
+  - Dado o ID de um Pokémon
+  - Quando buscar seus dados
+  - Então deve retornar hp, attack,defense,special-attack,special-defense e speed
+
+  - **Validar a quantidade e ordem dos stats**
+  - Dado o ID de um Pokémon
+  - Quando buscar seus dados
+  - Então deve retornar os valores de hp, attack,defense,special-attack,special-defense e speed
+
+  - **Validar a quantidade e ordem dos stats**
+  - Dado o ID de um Pokémon
+  - Quando buscar seus dados()
+  - Então deve retornaros dados de status na ordem correta:
+        ( 'hp',
+        'attack',
+        'defense',
+        'special-attack',
+        'special-defense',
+        'speed')
+  
 ---
 
 ### Endpoint: `/type/{id}`
@@ -247,4 +271,6 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
   - Quando consultar os dados da espécie
   - Então a curva de aprendizagem (growth_rate.name) deve ser exibida corretamente
 ---
+
+
 
