@@ -128,9 +128,6 @@ cy.api('GET', '/pokemon/xablau').then((res) => {
 - [cypress-plugin-slipt](https://www.npmjs.com/package/cypress-split)
 
 
-### 🔹 Erro ao buscar Pokémon inexistente
-
-
 ## 📋 Resumo do Mapeamento de Cenários
 
 Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação dos seguintes cenários principais:
