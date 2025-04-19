@@ -200,7 +200,7 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
   - Quando buscar seus dados
   - Então a imagem do pokemon deve retornar com tipo PNG
 
-  - **Validar o stats(atributos de desempenho no jogo) do Pokémon Dragonite**
+  - **Validar o stats(atributos de desempenho no jogo) do Pokémon **
   - Dado o ID de um Pokémon
   - Quando buscar seus dados
   - Então deve retornar hp, attack,defense,special-attack,special-defense e speed
