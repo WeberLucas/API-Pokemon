@@ -1,6 +1,6 @@
 describe('Testes com pokémons tipo dragão', () => {
     it('Deve verificar se os nomes dos stats do Dragonite estão corretos', () => {
-      cy.api('/pokemon/149').then(({ status, body }) => {
+      cy.api('/pokemon/149').then(({ status, body }) => {//id dragonite
         expect(status).to.eq(200);
   
         const statsEsperados = [

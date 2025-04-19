@@ -1,6 +1,6 @@
 describe('Testes com pokémons tipo água', () => {
     it('Valida que o tipo Água é fraco contra Elétrico e Planta', () => {
-      cy.api('/type/11').then(({ status, body }) => {
+      cy.api('/type/11').then(({ status, body }) => {//id tipo agua
         expect(status).to.eq(200);
   
         const fraquezas = body.damage_relations.double_damage_from.map(t => t.name);
