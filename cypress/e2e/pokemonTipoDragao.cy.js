@@ -58,5 +58,5 @@ describe('Testes com pokémons tipo dragão', () => {
         expect(statsRecebidos).to.deep.equal(statsEsperados);
       });
     });
-  });
+});
   

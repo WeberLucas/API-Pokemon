@@ -16,5 +16,5 @@ describe('Testes com pokémons tipo água', () => {
         expect(resistencias).to.include.members(['fire', 'ice', 'steel', 'water']);
       });
     });
-  });
+});
   

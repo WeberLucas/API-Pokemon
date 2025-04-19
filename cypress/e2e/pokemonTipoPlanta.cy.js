@@ -17,5 +17,5 @@ describe('Testes com pokémons tipo planta', () => {
         expect(body.evolves_from_species).to.be.null;
       });
     });
-  });
+});
   

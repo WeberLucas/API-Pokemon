@@ -16,6 +16,5 @@ describe('Testes com pokémons tipo psíquicos que são Lendários ou Míticos',
         expect(body.genera.some(g => g.genus.includes('New Species Pokémon'))).to.be.true;
       });
     });
-  
-  });
+});
   
