@@ -99,10 +99,10 @@ Então no arquivo .github/workflows/ci.yml, está configurado para mostrar o rel
 
 ## Exemplo relatório Cypress no GitHub Actions:
 - [Link para acessar](https://github.com/WeberLucas/API-Pokemon/actions/runs/14539785267)
-![Relatório Cypress](imagens/image.png)
+![Relatório Cypress](imagens/imagemRelatorioCypress)
 ## Exemplo relatório Mochawesome (clique no ícone de download):
 - [Link para acessar](https://github.com/WeberLucas/API-Pokemon/actions/runs/14539287869)
-![Relatório Mochawesome](imagens/image-1.png)
+![Relatório Mochawesome](imagens/imagemRelatorioMocha.png)
 
 ### 🧐Extras!!!!!!!
 
