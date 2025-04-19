@@ -270,20 +270,48 @@ Foram selecionados endpoints da [PokeAPI](https://pokeapi.co/) para validação 
   - Dado o ID de uma espécie
   - Quando uma espécie
   - Então deve retornar o URL correta em várias idiomas diferentes.
-  - **Validar se o pokemon é um baby**
+- **Validar se o pokemon é um baby**
   - Dado o ID de uma espécie
   - Quando consultar os dados da espécie
   - Então deve se o pokemon é um baby 
 
-  - **Validar curva de aprendizagem do pokemon**
+- **Validar curva de aprendizagem do pokemon**
   - Dado o ID de uma espécie
   - Quando consultar os dados da espécie
   - Então a curva de aprendizagem (growth_rate.name) deve ser exibida corretamente
 
-  - **Validar que pokemon de primeira forma seja evolves_from_species null**
+ - **Validar que pokemon de primeira forma seja evolves_from_species null**
   - Dado o ID de uma espécie
   - Quando consultar os dados da espécie
   - Então a curva de aprendizagem (growth_rate.name) deve ser exibida corretamente
+
+---
+
+
+### Endpoint: `/berry/{id}`
+
+- **Validar o nome da Berry**
+  - Dado o ID de uma berry
+  - Quando buscar os dados da berry
+  - Então o nome deve ser o esperado
+
+- **Validar o tempo de crescimento (growth_time)**
+  - Dado o ID de uma berry
+  - Quando buscar os dados da berry
+  - Então o tempo de crescimento deve ser o valor esperado
+
+- **Validar o sabor principal da berry**
+  - Dado o ID de uma berry
+  - Quando buscar os dados da berry
+  - Então o sabor principal deve ser o esperado
+
+
+
+
+
+
+
+
 ---
 
 
